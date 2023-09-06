@@ -66,7 +66,19 @@ function generatePassword(len,rdl,rdcl,nm,spcl){
   return password;
   
 }
-
+function change(val, boo){
+  console.log(val)
+  console.log(typeof val)
+  if (document.getElementById(val).checked){
+    var boo = true;
+    console.log("running?")
+    console.log(boo)
+    return boo;
+  } else{
+    boo = false;
+    return boo;
+  }
+}
 // console.log("hello");
 
 // Get references to the #generate element
@@ -77,20 +89,36 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var len = document.getElementById("len").value;
   console.log(len)
-  var rdl = document.getElementById("low").checked = true;
-  console.log(rdl)
-  var rdcl = document.getElementById("cap").checked = false;
+  var rdl = false;
+  var rdcl =false;
+  nm = false;
+  spcl = false;
+  
+  rdl = change("low", rdl);
+  rdcl = change("cap", rdcl);
+  nm = change("num", nm);
+  spcl = change("spcl", rdl)
   console.log(rdcl)
-  var nm =  document.getElementById("num").ifchecked = false;
   console.log(nm)
-  var spcl = document.getElementById("spcl").checked = false;
   console.log(spcl)
-  var password = generatePassword(len,rdl,rdcl,nm,spcl);
-  var passwordText = document.querySelector("#password");
-  
-  passwordText.value = password;
-  
+  // var rdl = document.getElementById("low").checked = true;
+  // var rdcl = document.getElementById("cap").checked = false;
+  // var nm =  document.getElementById("num").checked = false;
+  // var spcl = document.getElementById("spcl").checked = false;
+  if(len <= 0 || len > 128){
+    alert("invalid number")
+    }else{
+  if (nm == false && rdl == false && rdcl == false && spcl == false) {
+    console.log("error: all false")
+    alert("error: all false")
+  }else{
+    var password = generatePassword(len,rdl,rdcl,nm,spcl);
+    var passwordText = document.querySelector("#password");
+    
+    passwordText.value = password;
+  }
 }
 
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
