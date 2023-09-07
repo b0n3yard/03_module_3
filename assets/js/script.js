@@ -75,6 +75,7 @@ function change(val, boo){
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var sbbtn =  document.querySelector("#sbmt");
 
 
 // Write password to the #password input
@@ -104,5 +105,9 @@ function writePassword() {
 }
 
 }
+function show(){
+    document.getElementById("shy").style.display = "block";
+}
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", /*writePassword*/ show);
+sbbtn.addEventListener("click", writePassword);

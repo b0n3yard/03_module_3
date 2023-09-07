@@ -28,22 +28,25 @@
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
-        <section class="seek">
-          <input type="button" onclick = "seek">
-        </section>
-        <section class = "shy">
+        <section id = "shy">
           <form>
-          <input id="len" type="number" value = "7">
-          <input type="checkbox" id="num" name="num">
-          <label for="num">number</label>
-          <input type="checkbox" id="cap" name=" capital">
-          <label for="cap">capital</label>
-          <input type="checkbox" id="low" name= "lowercase">
-          <label for="low">lowercase</label>
-          <input type="checkbox" id="spcl" name = "special">
-          <label for="spcl">special</label>
-          <input type="submit" value="Submit">
+            <input id="len" type="number" value = "7">
+            <input type="checkbox" id="num" name="num">
+            <label for="num">number</label>
+            <input type="checkbox" id="cap" name=" capital">
+            <label for="cap">capital</label>
+            <input type="checkbox" id="low" name= "lowercase">
+            <label for="low">lowercase</label>
+            <input type="checkbox" id="spcl" name = "special">
+            <label for="spcl">special</label>
+            <!-- <input   type="submit" value="Submit"> -->
           </form>
+          <div>
+          <button id = "sbmt" class ="btn">submit</button>
+          </div>
+        </section>
+        <section class="seek">
+          <input type="button" onclick = "show()">
         </section>
       </div>
     </div>
