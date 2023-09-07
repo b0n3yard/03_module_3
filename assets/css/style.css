@@ -95,7 +95,8 @@ button[disabled] {
 
 #shy{
   display: none;
-
+  flex-direction: column;
+  text-align: center;
 }
 
 .float-right {
