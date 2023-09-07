@@ -91,7 +91,7 @@ function writePassword() {
   rdcl = change("cap", rdcl);
   nm = change("num", nm);
   spcl = change("spcl", rdl)
-  if(len <= 0 || len > 128){
+  if(len < 8 || len > 128){
     alert("invalid number")
     }else{
   if (nm == false && rdl == false && rdcl == false && spcl == false) {
