@@ -85,7 +85,7 @@ function writePassword(len) {
 }
 function show(){
   
-   var len = prompt( "enter legth between 8 and 128 charecters");
+   var len = prompt( "enter legth between 8 and 128 charecters") || 9;
   writePassword(len);
 }
 // Add event listener to generate button
