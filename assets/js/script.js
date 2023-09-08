@@ -34,25 +34,20 @@ function generatePassword(len,rdl,rdcl,nm,spcl){
     }
 
     
-    if (choice == 0 && nm == true){
+    if (choice == 0){
       var num = Math.floor(Math.random() * 10);
-      console.log(num)
       password[x] = num; 
-      
-    } else if(choice == 1 && rdl == true){
+    } else if(choice == 1){
       var newnum = Math.floor(Math.random() * randletter.length);
       var newltr =  randletter[newnum];
-      console.log(newltr);
       password[x] = newltr;
-     }else if(choice == 2 && spcl == true){
+     }else if(choice == 2){
         var nwnum =  Math.floor(Math.random() * randspcl.length);
         var nwspcl = randspcl[nwnum];
-        console.log(nwspcl);
         password[x] = nwspcl;
-    } else if(choice == 3 && rdcl == true){
+    } else if(choice == 3){
         var nwnum =  Math.floor(Math.random() * randcap.length);
         var nwcap = randcap[nwnum];
-        console.log(nwcap);
         password[x] = nwcap;
 
     }
@@ -62,17 +57,8 @@ function generatePassword(len,rdl,rdcl,nm,spcl){
   return password;
   
 }
-function change(val, boo){
-  if (document.getElementById(val).checked){
-    var boo = true;
-    return boo;
-  } else{
-    boo = false;
-    return boo;
-  }
-}
 function changetest(val, boo){
-  if (val == 'y'){
+  if (val == 'y' || val == 'Y'){
     var boo = true;
     return boo;
   } else{
@@ -84,23 +70,19 @@ function changetest(val, boo){
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-var sbbtn =  document.querySelector("#sbmt");
 
 
 // Write password to the #password input
 function writePassword(lower,upper,numb,special,len) {
-  // var len = document.getElementById("len").value;
   console.log(len)
-  // var test = prompt("include lowercase letters? (y/n)");
   var rdl = false;
   var rdcl =false;
   var nm = false;
   var spcl = false;
   rdl = changetest(lower, rdl);
-  // rdl = change("low", rdl);
   rdcl = changetest(upper, rdcl);
   nm = changetest(numb, nm);
-  spcl = changetest(special, rdl)
+  spcl = changetest(special, rdl);
   if(len < 8 || len > 128){
     alert("invalid number")
     }else{
@@ -109,8 +91,6 @@ function writePassword(lower,upper,numb,special,len) {
   }else{
     var password = generatePassword(len,rdl,rdcl,nm,spcl);
     var fpassword = password.join("");
-     console.log(fpassword)
-    console.log(typeof fpassword);
     var passwordText = document.querySelector("#password");
     
     passwordText.value = fpassword;
@@ -125,8 +105,6 @@ function show(){
   var numb = prompt("include numbers? (y/n)");
   var special = prompt("include special charecters? (y/n)");
   writePassword(lower,upper,numb,special,len);
-    // document.getElementById("shy").style.display = "flex";
 }
 // Add event listener to generate button
-generateBtn.addEventListener("click", /*writePassword*/ show);
-sbbtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", show);
