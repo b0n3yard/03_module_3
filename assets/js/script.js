@@ -57,33 +57,18 @@ function generatePassword(len,rdl,rdcl,nm,spcl){
   return password;
   
 }
-function changetest(val, boo){
-  if (val == 'y' || val == 'Y'){
-    var boo = true;
-    return boo;
-  } else{
-    boo = false;
-    return boo;
-  }
-}
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 
 // Write password to the #password input
-function writePassword(lower,upper,numb,special,len) {
+function writePassword(len) {
   console.log(len)
-  var rdl = false;
-  var rdcl =false;
-  var nm = false;
-  var spcl = false;
-  rdl = changetest(lower, rdl);
-  rdcl = changetest(upper, rdcl);
-  nm = changetest(numb, nm);
-  spcl = changetest(special, rdl);
-  if(len < 8 || len > 128){
+  var rdl = confirm("include lowercase letters?");
+  var rdcl =confirm("include uppercase letters?");;
+  var nm = confirm("include numbers?");
+  var spcl = confirm("include special charecters?");
+  if(len < 8 || len > 128 || isNaN(len)){
     alert("invalid number")
     }else{
   if (nm == false && rdl == false && rdcl == false && spcl == false) {
@@ -99,12 +84,9 @@ function writePassword(lower,upper,numb,special,len) {
 
 }
 function show(){
-  var len = prompt("enter legth between 8 and 128 charecters");
-  var lower = prompt("include lowercase letters? (y/n)");
-  var upper = prompt("include uppercase letters? (y/n)");
-  var numb = prompt("include numbers? (y/n)");
-  var special = prompt("include special charecters? (y/n)");
-  writePassword(lower,upper,numb,special,len);
+  
+   var len = prompt( "enter legth between 8 and 128 charecters");
+  writePassword(len);
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", show);
