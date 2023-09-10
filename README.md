@@ -15,4 +15,3 @@ to insall this project, clone the repository from [github](https://github.com/b0
 Michael Klein
 and a lot of help from [W3schools](https://www.w3schools.com/js/default.asp)
 
-## Li
